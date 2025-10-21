@@ -1,0 +1,12 @@
+name: HangmanneR
+title: HangmanneR
+username: matias-andina
+account: matias-andina
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10625538
+bundleId: 8010172
+url: https://matias-andina.shinyapps.io/HangmanneR/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,201 @@
+/* Import 'Yusei Magic' font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
+body {
+  background-color: #404040; /* Softer dark background */
+  font-family: 'Yusei Magic', sans-serif;
+  color: #e0e0e0; /* Softer white for text */
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+.navbar {
+  background-color: #303030; /* Slightly lighter dark for navbar */
+  max-width: 800px;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 3px solid #e0e0e0;
+}
+
+.container {
+  text-align: center;
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #e0e0e0;
+  margin-bottom: 22px;
+  font-weight:bold;
+}
+
+#wordDisplay {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+#attempts, #feedback, #result {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+#letterInput {
+  width: 75%;
+  font-size: 24px;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #505050; /* Lighter shade for input field */
+  color: #e0e0e0;
+}
+
+.btn {
+  font-size: 20px;
+  padding: 15px 30px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #e0e0e0;
+  color: #404040;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: #d0d0d0;
+  color: #404040;
+}
+
+/* This class will change the way we display used letters*/
+.guessed {
+  /* text-decoration: line-through; */
+  font-style: italic;
+  color: #909090;
+  text-shadow: 1px 1px 2px #000;
+}
+
+
+#hintDisplay {
+  background-color: #505050;
+  color: #e0e0e0;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  max-width: 800px;
+}
+
+/* Link styles */
+a {
+  color: #b8b8b8; /* Lighter gray for links */
+  font-weight: bold; /* Bolded for emphasis */
+  text-decoration: none; /* No underline */
+}
+
+a:hover {
+  color: #d0d0d0; /* Slightly lighter on hover */
+}
+
+.settings-container {
+  max-width: 800px;
+  padding: 20px;
+  background-color: #505050;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.settings-section {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.settings-section h4 {
+  margin-bottom: 15px;
+  color: #e0e0e0;
+}
+
+#difficulty-container {
+  margin-bottom: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  color: #e0e0e0;
+}
+
+.checkbox-container .shiny-input-container {
+  margin-right: 10px;
+}
+
+hr {
+  border-top: 1px solid #e0e0e0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/* Custom style for radio buttons and checkboxes */
+.custom-radio input[type="radio"]:checked,
+.custom-checkbox input[type="checkbox"]:checked {
+  accent-color: #e0e0e0; /* Set to a color that matches your app's theme */
+}
+
+.custom-radio input[type="radio"],
+.custom-checkbox input[type="checkbox"] {
+  transform: scale(1.7); /* Increase the size */
+}
+
+/* Custom style for radio buttons and checkboxes */
+.custom-radio .shiny-input-radio-other,
+.custom-checkbox .shiny-input-checkbox-other {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+/* Align text with radio buttons and checkboxes */
+.custom-radio label,
+.custom-checkbox label {
+  display: flex;
+  align-items: center;
+}
+
+.about-content {
+  /* Your custom styles here */
+ color: #e0e0e0; /* Example: Change text color */
+ padding: 20px;  /* Example: Add padding */
+ background-color: #505050; /* Example: Set a background color */
+ border-radius: 10px; /* Example: Rounded corners */
+ max-width: 800px;
+}
+
+/* Footer style */
+footer {
+  background-color: #1a1a1a;
+  max-width: 800px;
+  color: #f7f7f7;
+  padding: 20px 0;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-content {
+  text-align: center;
+  width: 100%;
+}
+
+footer .fa {
+  font-size: 24px; /* Adjust icon size */
+  color: #e0e0e0; /* Adjust icon color */
+  margin-right: 15px; /* Space between icons */
+}
+
+footer .fa:hover {
+  color: #b8b8b8; /* Color change on hover */
+}
