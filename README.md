@@ -5,8 +5,8 @@ a package sampled from a snapshot of CRAN metadata that ships with the package,
 19,838 of them. It started as a [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
 entry for 2023 week 38.
 
-Play it at <https://matias-andina.shinyapps.io/HangmanneR/>. If that link does
-nothing the app is asleep, so run it locally.
+Play it at <https://matiasandina-hangmanner.share.connect.posit.cloud/>,
+hosted on Posit Connect Cloud.
 
 ## Install
 
@@ -44,12 +44,18 @@ description comes up anyway once the round is over, next to a link to CRAN.
 R/                     app_ui, app_server, run_app, hangman_data
 inst/app/www/          style.css, about_footer.html
 inst/extdata/          pkgdata.csv
-app.R                  loads the package and calls run_app(), for shinyapps.io
+app.R                  loads the package and calls run_app(), the deploy entry point
 quarto/                source for the docs site
 docs/                  the rendered site
+manifest.json          dependency pins Connect Cloud builds from
 ```
 
 To rebuild the site, run `quarto render` from `quarto/`.
+
+Deploying after a change: push, then `remotes::install_github("matiasandina/HangmanneR")`,
+then `rsconnect::writeManifest(appFiles = "app.R")` and push the new manifest.
+Connect Cloud installs the package from this repo at the commit the manifest
+pins, so the manifest has to be regenerated or the old code gets deployed.
 
 ## Credits
 

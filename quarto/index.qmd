@@ -6,8 +6,9 @@ HangmanneR is hangman played with CRAN package names. You guess one letter at a
 time against a package sampled from a snapshot of CRAN metadata that ships with
 the package, 19,838 of them.
 
-There is a hosted copy at <https://matias-andina.shinyapps.io/HangmanneR/>. If
-that link does nothing, the app is asleep and you can run it locally instead.
+There is a hosted copy at
+<https://matiasandina-hangmanner.share.connect.posit.cloud/>, running on Posit
+Connect Cloud. You can also run it locally.
 
 ## Install
 
