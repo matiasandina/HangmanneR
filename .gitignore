@@ -39,8 +39,9 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
-# pkgdown site
-docs/
+# Quarto
+quarto/.quarto/
+quarto/_site/
 
 # translation temp files
 po/*~

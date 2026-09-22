@@ -1,0 +1,24 @@
+Package: HangmanneR
+Title: Play Hangman with CRAN Package Names
+Version: 0.1.0
+Authors@R: 
+    person("Matias", "Andina", , "matiasandina@gmail.com", role = c("aut", "cre", "cph"))
+Description: A Shiny game of hangman played with CRAN package names. Letters
+    are guessed one at a time to uncover a package sampled from a snapshot of
+    CRAN metadata that ships with the package. Difficulty is set by the length
+    of the package name, play can be restricted to packages authored by Posit
+    Software, PBC, and the package description is available as a hint with the
+    name redacted.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+URL: https://github.com/matiasandina/HangmanneR
+BugReports: https://github.com/matiasandina/HangmanneR/issues
+Imports: 
+    dplyr,
+    fontawesome,
+    keys,
+    shiny,
+    stringr,
+    utils

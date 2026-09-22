@@ -1,0 +1,9 @@
+^HangmanneR\.Rproj$
+^\.Rproj\.user$
+^app\.R$
+^rsconnect$
+^quarto$
+^docs$
+^LICENSE\.md$
+^\.github$
+^\.git.*$
