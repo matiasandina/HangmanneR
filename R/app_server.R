@@ -9,7 +9,7 @@ app_server <- function(input, output, session) {
   reactive_pkgdata <- reactive({
     data <- pkgdata
     if (input$positFilter) {
-      data <- data %>% dplyr::filter(stringr::str_detect(Author, "Posit Software, PBC"))
+      data <- dplyr::filter(data, stringr::str_detect(Author, "Posit Software, PBC"))
     }
     
     # Define difficulty levels with appropriate character length ranges
@@ -20,9 +20,9 @@ app_server <- function(input, output, session) {
     )
     selected_difficulty <- difficulty_mapping[[input$difficulty]]
     
-    data <- data %>% filter(between(n_char, 
-                                    min(selected_difficulty), 
-                                    max(selected_difficulty)))
+    data <- dplyr::filter(data, dplyr::between(n_char,
+                                              min(selected_difficulty),
+                                              max(selected_difficulty)))
     data
   })  
   # Initialize game state

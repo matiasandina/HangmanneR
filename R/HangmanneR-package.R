@@ -2,8 +2,6 @@
 "_PACKAGE"
 
 #' @import shiny
-#' @importFrom dplyr %>% between filter
-#' @importFrom stringr str_detect
 #' @importFrom utils read.csv
 NULL
 
