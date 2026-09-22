@@ -1,48 +1,59 @@
- # HangmanneR
+# HangmanneR
 
-HangmanneR is a Shiny-powered spin on the classic hangman game that challenges you to guess CRAN package names. The app was originally built for the [TidyTuesday](https://github.com/rfordatascience/tidytuesday) challenge (2023, Week 38) using data derived from the CRAN Collaboration Graph, and it doubles as a playful way to explore new R packages.
+Hangman played with CRAN package names. You guess one letter at a time against
+a package sampled from a snapshot of CRAN metadata that ships with the package,
+19,838 of them. It started as a [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
+entry for 2023 week 38.
 
-> Currently working on demo and R package bundle
+Play it at <https://matias-andina.shinyapps.io/HangmanneR/>. If that link does
+nothing the app is asleep, so run it locally.
 
+## Install
 
-## Features
+```r
+# install.packages("remotes")
+remotes::install_github("matiasandina/HangmanneR")
+```
 
-- **Playful package discovery** – Guess letters to reveal real CRAN package names sourced from the bundled dataset.
-- **Difficulty levels** – Choose between Easy, Normal, and Hard modes to filter package names by character length. This keeps quick rounds approachable and longer names challenging.
-- **Posit-authored filter** – Toggle the option to restrict the game to packages authored by Posit Software, PBC.
-- **Helpful hints** – Reveal the package description at any time (with the package name redacted) to keep the game moving.
-- **Celebratory finish** – Win a round to trigger an animated confetti burst along with a link to the package’s CRAN page.
+## Run
 
-## Getting Started
+```r
+library(HangmanneR)
+run_app()
+```
 
-You can play HangmanneR online at <https://matias-andina.shinyapps.io/HangmanneR/>. 
+`run_app()` passes `...` to `shiny::shinyApp()`, so `run_app(options = list(port = 1234))`
+and friends work.
 
-> If the link is broken, it's possible the app is sleeping. You can file issues or run locally (see below!)
+## How it plays
 
-To run it locally:
+Type a letter and the guess registers on its own, or click Guess Letter. Digits
+and the dot count as guesses, because package names use them. Six wrong guesses
+end the round, and the hearts under the controls are what is left of your
+budget.
 
-1. Install the required packages if you don’t already have them:
-   ```r
-   install.packages(c("shiny", "dplyr", "keys", "fontawesome"))
-   ```
-2. Clone this repository and open the project in R (or set the working directory to the repo root).
-3. Launch the app:
-   ```r
-   shiny::runApp()
-   ```
+Difficulty filters the pool by name length: Easy is 2 to 7 characters, Normal
+is 8 to 15, Hard is 16 and up. The Posit checkbox keeps only packages with
+Posit Software, PBC in the author field. Changing either one deals a new
+package. Hint shows the package description with the name blanked out, and that
+description comes up anyway once the round is over, next to a link to CRAN.
 
-The app reads the bundled `pkgdata.csv` file at startup, so no external downloads are required.
+## Layout
 
-## Gameplay Tips
+```
+R/                     app_ui, app_server, run_app, hangman_data
+inst/app/www/          style.css, about_footer.html
+inst/extdata/          pkgdata.csv
+app.R                  loads the package and calls run_app(), for shinyapps.io
+quarto/                source for the docs site
+docs/                  the rendered site
+```
 
-- Start typing a letter to submit a guess automatically, or click **Guess Letter** to lock it in manually.
-- Keep an eye on the hearts underneath the controls—they show how many incorrect guesses you have left.
-- Stuck? Click **Hint** to reveal the package description. If you win or lose, the description appears automatically longside a link to the package on CRAN.
-- Use the **Play Again** button anytime to start a fresh round with a new package.
+To rebuild the site, run `quarto render` from `quarto/`.
 
-## License and Credits
+## Credits
 
-- Data: TidyTuesday (2023, Week 38) derived from the [CRAN Collaboration Graph](https://github.com/schochastics/CRAN_collaboration).
-- App design and development: Matias Andina. See `about_footer.html` for more background and support links.
-
-Enjoy the game, learn a new package, and share it with fellow R enthusiasts!
+Data from TidyTuesday 2023 week 38, derived from the
+[CRAN Collaboration Graph](https://github.com/schochastics/CRAN_collaboration).
+App by Matias Andina, MIT licensed. See `inst/app/www/about_footer.html` for
+background and support links.
