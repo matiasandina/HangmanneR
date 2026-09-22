@@ -1,0 +1,26 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "HangmanneR"
+  description: "Hangman played with CRAN package names."
+  repo-url: https://github.com/matiasandina/HangmanneR
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: reference.qmd
+        text: Reference
+    right:
+      - icon: github
+        href: https://github.com/matiasandina/HangmanneR
+        aria-label: GitHub
+  page-footer:
+    center: "MIT licensed. Built by Matias Andina."
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-copy: true

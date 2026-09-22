@@ -1,0 +1,52 @@
+---
+title: "HangmanneR"
+---
+
+HangmanneR is hangman played with CRAN package names. You guess one letter at a
+time against a package sampled from a snapshot of CRAN metadata that ships with
+the package, 19,838 of them.
+
+There is a hosted copy at <https://matias-andina.shinyapps.io/HangmanneR/>. If
+that link does nothing, the app is asleep and you can run it locally instead.
+
+## Install
+
+```r
+# install.packages("remotes")
+remotes::install_github("matiasandina/HangmanneR")
+```
+
+## Run
+
+```r
+library(HangmanneR)
+run_app()
+```
+
+`run_app()` hands `...` to `shiny::shinyApp()`, so the usual options still work:
+
+```r
+run_app(options = list(port = 1234))
+```
+
+## Playing
+
+Type a letter and the guess registers on its own, or click Guess Letter. Digits
+and the dot count as guesses too, because package names use them. Six wrong
+guesses end the round, and the hearts under the controls are what is left.
+
+Difficulty filters the pool by the length of the package name: Easy is 2 to 7
+characters, Normal is 8 to 15, Hard is 16 and up. The Posit checkbox keeps only
+packages with Posit Software, PBC in the author field. Changing either setting
+deals a new package.
+
+Hint shows the package description with the name blanked out. The description
+comes up on its own when the round ends, next to a link to the package on CRAN.
+
+## The data
+
+The CSV holds the package name, the author field and the description for each
+package. It comes from [TidyTuesday 2023 week
+38](https://github.com/rfordatascience/tidytuesday), which in turn derives from
+the [CRAN Collaboration Graph](https://github.com/schochastics/CRAN_collaboration).
+It is a snapshot, so packages published since then will not show up.

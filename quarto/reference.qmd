@@ -1,0 +1,45 @@
+---
+title: "Reference"
+---
+
+Four functions are exported. Each one has a help page in the installed package,
+so `?run_app` works too.
+
+## `run_app(...)`
+
+Starts the game. It registers `inst/app/www` as a Shiny resource path and then
+calls `shiny::shinyApp()`, passing `...` straight through. Returns the app
+object, which starts the app when printed.
+
+## `app_ui()`
+
+Builds the interface: the Game, Settings and About tabs, plus the footer. It
+reads `style.css` and `about_footer.html` from the installed package through
+`system.file()`, so it works from any working directory.
+
+## `app_server(input, output, session)`
+
+Holds the game state and the rules. Guesses are lowercased before they are
+matched, and the match is fixed rather than a regular expression, so a dot
+guess means a literal dot.
+
+## `hangman_data()`
+
+Returns the CRAN snapshot as a data frame with `Package`, `Author`,
+`Description` and `n_char`, the last being the length of the package name that
+the difficulty setting filters on. The CSV is parsed the first time you call
+it and cached for the rest of the R session.
+
+```r
+head(hangman_data()[, c("Package", "n_char")])
+```
+
+## Layout
+
+```
+R/                     app_ui, app_server, run_app, hangman_data
+inst/app/www/          style.css, about_footer.html
+inst/extdata/          pkgdata.csv
+app.R                  loads the package and calls run_app(), for shinyapps.io
+quarto/                source for this site, rendered into docs/
+```
