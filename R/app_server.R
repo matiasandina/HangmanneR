@@ -99,7 +99,7 @@ app_server <- function(input, output, session) {
   
   # Display remaining attempts
   output$attempts <- renderText({
-    paste(rep("❤", game_state$remaining_attempts), collapse = " ")
+    paste(rep("\u2764", game_state$remaining_attempts), collapse = " ")
   })
   
   # Display feedback
@@ -114,7 +114,7 @@ app_server <- function(input, output, session) {
       
       if (nchar(pkg_name) > 0) {
         # Replace package name with block characters
-        safe_desc <- gsub(pkg_name, strrep("█", nchar(pkg_name)), desc, ignore.case = TRUE)
+        safe_desc <- gsub(pkg_name, strrep("\u2588", nchar(pkg_name)), desc, ignore.case = TRUE)
       } else {
         safe_desc <- desc
       }
